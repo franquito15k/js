@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practica JavaScript</title>
+    <style>
+      .tabla {
+          width: 300px;
+          margin: 20px auto;
+          border-collapse: collapse;
+      }
+
+      .tabla td {
+          width: 100px;
+          height: 50px;
+          text-align: center;
+          border: 1px solid #000;
+          cursor: pointer;
+      }
+
+      .tabla td:hover {
+          background-color: #f0f0f0;
+      }
+  </style>
+  </head>
+  <body onLoad="inicializar()">
+    <button onclick="entrada()">Test de entrada teclado</button>
+    <br />
+    <button id="btnmax" onclick="fun_mayor()">Calcaular mayor:</button>
+    <br />
+    <p id="usuario"></p>
+    <p id="email"></p>
+    <button id="btnCalcular" onclick="fun_perimetro()">
+      calcula el perímetro
+    </button>
+    <br />
+    <button id="btnCalcular" onclick="fun_sum_pro()">
+      Calcula sum y pro act 2
+    </button>
+    <br />
+    <button id="btnCalcular" onclick="fun_sum_pro_v4()">
+      sum y prod de cuatro valores
+    </button>
+    <br />
+    <button id="btnCalcular" onclick="calcula_total_abonar()">
+      Calcula el total a abonar
+    </button>
+    <br />
+    <button id="cal_per">Calcular Perímetro</button>
+    <div id="resultado"></div>
+    <br />
+    <button id="btnCalcular" onclick="prom()">Calcula el promedio</button>
+    <br />
+    <button id="btnCalcular" onclick="cargar_nombre_fin()">
+      Cargar nombre, hasta decir Fin
+    </button>
+    <br />
+    <br />
+    <label for="numero1">Número 1:</label>
+    <input type="number" id="numero1" required />
+    <br />
+    <label for="numero2">Número 2:</label>
+    <input type="number" id="numero2" required />
+    <br />
+    <button id="id_compuesto" onclick="realizarOperaciones()">Calcular</button>
+    <p id="resultado_com"></p>
+    <br />
+    <button onclick="num_pos_3()">Ingresar 3 numeros positivos</button>
+    <div id="resultado_ani"></div>
+    <br />
+    <br />
+
+    <button id="ope_log" onclick="menor_10()">op log &&</button>
+    <br />
+    <br />
+    <button id="ope_log_unique" onclick="op_or()">op log ||</button>
+    <br />
+    <br />
+    <button onclick="mostrarVentana()">Traducir palabra</button>
+    <p id="resultado"></p>
+    <br />
+    <br />
+    <button onclick="mostrarSerie()">Mostrar Serie</button>
+    <br />
+    <br />
+    <button onclick="calcularPromedio()">Calcular Altura Promedio</button>
+    <br />
+    <br />
+    <button onclick="acumularValores()">Iniciar Acumulación</button>
+    <br />
+    <br />
+    <button onclick="mostrarTabla()">Mostrar Tabla de Multiplicar</button>
+    <br />
+    <br />
+    <button onclick="mostrarRango()">Mostrar Rango de Números</button>
+    <br>
+    <br>
+    <p><strong>Ingresar un numero</strong></p>
+    <form id="numForm">
+      <input type="number" id="num1" placeholder="Número 1" required>
+      <input type="number" id="num2" placeholder="Número 2" required>
+      <input type="number" id="num3" placeholder="Número 3" required>
+      <button type="button" onclick="mostrarMenor(num1.value, num2.value, num3.value)">Mostrar el menor</button>
+    </form>
+    <p id="resultadoretor"></p>
+    <br>
+    <br>
+    <button type="button" onclick="mostrarCuatrimestre()">Mostrar Cuatrimestre</button>
+    <p id="resultado_dia"></p>
+    <br>
+    <br>
+    <button type="button" onclick="operarConVector()">Generar y Calcular</button>
+    <p id="resultado_vec"></p>
+    <br><br>
+    <input type="number" id="numero" placeholder="Número" required>
+    <button type="button" onclick="elevarTerceraPotencia()">Calcular</button>
+    <p id="resultado_3pot"></p>
+    <br><br><br>
+    <form id="formulario">
+      <button type="button" onclick="mostrarMensaje('1')">1</button>
+      <button type="button" onclick="mostrarMensaje('2')">2</button>
+      <button type="button" onclick="mostrarMensaje('3')">3</button>
+    </form>
+
+    <p id="resultado_form"></p>
+    <br><br>
+    <form>
+      <label for="numero_form">Número:</label>
+      <input type="number" id="numero_form" placeholder="Ingrese un número entero" required>
+      <button type="button" onclick="elevarAlCubo()">Elevar al Cubo</button>
+    </form>
+    <br><br>
+    <form>
+      <label for="password1">Contraseña:</label>
+      <input type="password" id="password1" placeholder="Ingrese su contraseña" required><br><br>
+      
+      <label for="password2">Confirmar Contraseña:</label>
+      <input type="password" id="password2" placeholder="Confirme su contraseña" required><br><br>
+
+      <button type="button" onclick="validarContraseñas()">Validar</button>
+    </form>
+
+    <p id="resultado_pass"></p>
+    <br><br>
+    
+    <h1>Selecciona una pizza</h1>
+    <label for="pizzaSelect">Tipo de Pizza:</label>
+    <select id="pizzaSelect" onchange="mostrarPrecio()">
+        <option value="0">Seleccione una pizza</option>
+        <option value="1">Jamón y Queso</option>
+        <option value="2">Muzzarella</option>
+        <option value="3">Morrones</option>
+    </select>
+    <br><br>
+    <label for="precio">Precio:</label>
+    <input type="text" id="precio" readonly>
+
+
+    <br><br>
+    <form id="deportesForm">
+      <label for="futbol">Fútbol</label>
+      <input type="checkbox" id="futbol" name="deportes" value="Fútbol"><br>
+
+      <label for="basquet">Básket</label>
+      <input type="checkbox" id="basquet" name="deportes" value="Básket"><br>
+
+      <label for="tenis">Tenis</label>
+      <input type="checkbox" id="tenis" name="deportes" value="Tenis"><br><br>
+
+      <button type="button" onclick="mostrarDeportes()">Mostrar Deportes Seleccionados</button>
+    </form>
+    <p id="resultado_check"></p>
+    <br><br><br>
+    <form>
+      <label for="mayor18">¿Eres mayor de 18 años?</label><br>
+      <input type="radio" id="mayor18" name="edad" value="mayor" required>
+      <label for="mayor18">Sí</label><br>
+      <input type="radio" id="menor18" name="edad" value="menor">
+      <label for="menor18">No</label><br>
+      <button type="button" onclick="validarEdad()">Verificar</button>
+    </form>
+    <br><br><br>
+    <form id="visitaForm">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required><br><br>
+      <label for="email">Correo Electrónico:</label>
+      <input type="email" id="email" name="email" required><br><br>
+      <label for="comentarios">Comentarios:</label><br>
+      <textarea id="comentarios" name="comentarios" rows="4" cols="50" required></textarea><br><br>
+      <button type="button" onclick="mostrarDatos()">Enviar</button>
+    </form>
+    <br><br><br>
+    <form id="usuarioForm">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required onfocus="resaltarCampo('nombre')" onblur="normalizarCampo('nombre')"><br><br>
+
+      <label for="clave">Clave:</label>
+      <input type="password" id="clave" name="clave" required onfocus="resaltarCampo('clave')" onblur="validarClave()"><br><br>
+
+      <button type="button" onclick="enviarFormulario()">Enviar</button>
+    </form>
+    <br><br><br>
+    <table class="tabla">
+      <tr>
+          <td onmouseover="cambiarColor(this)" onmouseout="restaurarColor(this)">
+              <a href="https://mail.google.com" target="_blank">Gmail</a>
+          </td>
+          <td onmouseover="cambiarColor(this)" onmouseout="restaurarColor(this)">
+              <a href="https://outlook.live.com" target="_blank">Hotmail</a>
+          </td>
+          <td onmouseover="cambiarColor(this)" onmouseout="restaurarColor(this)">
+              <a href="https://mail.yahoo.com" target="_blank">Yahoo</a>
+          </td>
+      </tr>
+    </table>
+    <br><br><br>
+    <h1>Formulario para abrir una nueva ventana</h1>
+    <button onclick="abrirVentana()">Abrir Ventana</button>
+    <br><br><br>
+    <button onClick="redireccionar()">Redireccionar a un servidor de mail</button>
+    <br><br><br>
+    <form>
+      <input type="button" value="abrir ventana" onClick="abrirVentana()">
+    </form>
+    <br><br><br>
+
+    <div id="result"></div>
+
+
+  <br><br><br></body>
+    <script src="index.js">
+      setTimeout(redireccionar, 1000);
+
+      function redireccionar() {
+        window.location = 'https://www.youtube.com.ar';
+      }
+    </script>
+</html>
